@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport"
+              content="width=device-width,
+                       initial-scale=1" />
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+        crossorigin="anonymous">
+        <!-- CSS -->
+        <link rel="stylesheet" href="/assets/style.css">
+        <!-- JS-->
+        <title>Vacation Destinations WishList</title>
+    </head>
+<body>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+            <h1 class="display-4">Vacation Destinations WishList</h1>
+            <p class="lead">Found exciting places to visition on your next vacation? Use the form below to add them to
+                your wishlist</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <form id="destination_details_form">
+                    <div class="form-group">
+                        <label for="name">Destination name</label>
+                        <input required="" minlength="2" type="text" class="form-control" id="name" placeholder="Enter the name of the destination">
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input required="" minlength="2" type="text" class="form-control" id="location" placeholder="Where is it located?">
+                    </div>
+                    <button type="submit" class="btn btn-primary submit_btn">Add to list</button>
+                </form>
+
+                <h3 id="weather">Weather</h3>
+            </div>
+
+            <div class="col-md-9">
+                <h4 id="title">Enter destination details</h4>
+                <div id="destinations_container" style="display: flex; flex-wrap: wrap; justify-content: center;">
+                    <!-- Dynamically populated by Javascript -->
+                    <% for (document of destinations) {%>
+                        <div class="card" id="<%= document._id %>" style="width: 15rem; height: fit-content;">
+                            <img class="card-img-top img-fluid" src="<%= document.imageUrl %>" style="height: 150px;">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= document.destinationName %></h5>
+                                <h6 class="card-subtitle mb-2 text-muted"><%= document.destinationLocation %></h6>
+                                <div class="buttons_container" style="width: 100%; display: flex;justify-content: space-between;">
+                                    <button class="btn btn-warning editButton">Edit</button>
+                                    <button class="btn btn-danger removeButton">Remove</button>
+                                </div>
+                                <p class="card-text">Click Me to See More</p>
+                            </div>
+                        </div>
+                    <% } %> 
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script type="module" src="main.js"></script>
+
+
+</body>
+</html>

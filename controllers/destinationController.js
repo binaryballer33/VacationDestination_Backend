@@ -3,8 +3,10 @@ const router = express.Router();
 const vacationDestinations = require("../models/vacationDestinations");
 
 router.get("/", async (req, res) => {
-    const destinations = await vacationDestinations.find({});
-    res.status(200).json({status: 200, response: destinations});
+    setTimeout(async () => {
+        const destinations = await vacationDestinations.find({});
+        res.render("index.ejs", {destinations: destinations}) 
+    }, 50)   
 })
 
 router.post("/", async (req, res) => {
