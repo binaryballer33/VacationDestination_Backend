@@ -1,4 +1,4 @@
-# VacationDestination_Backend-EJS Branch
+# VacationDestination_Backend_EJS Branch
 
 This is just a simple CRUD application that allowed me to learn how to to utilize mongodb, mongoose, express, ejs templates and node js
 
