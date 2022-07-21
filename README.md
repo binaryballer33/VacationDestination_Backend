@@ -1,5 +1,7 @@
-# VacationDestination_Backend
-VacationDestination_Backend
+# VacationDestination_Backend-ejs 
+VacationDestination_Backend-ejs
 
-repo exist so that it can be hosted on heroku
-https://vacation-destination-shaqmandy.herokuapp.com/
+full test project is hosted on heroku
+used ejs templating to convert front end code to ejs code and added main.js
+
+https://vacation-destination-ejs-shaqm.herokuapp.com/destinations
