@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport"
+              content="width=device-width,
+                       initial-scale=1" />
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+        crossorigin="anonymous">
+        <!-- CSS -->
+        <link rel="stylesheet" href="/assets/style.css">
+        <!-- JS-->
+        <title>See More Of Your Destination</title>
+    </head>
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+            <h1 class="display-4">Vacation Destinations WishList</h1>
+            <p class="lead">Found exciting places to visition on your next vacation? Use the form below to add them to
+                your wishlist</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <h3 id="weather">Weather</h3>
+            <div class="col-md-12">
+                <h4 id="title">My WishList</h4>
+                <div id="destinations_container" style="display: flex; flex-wrap: wrap; justify-content: center;">
+                <!-- Dynamically populated by Javascript -->
+                <div class="card w-33" id="<%= document._id %>" style="width: 15rem; height: fit-content;">
+                        <img class="card-img-top img-fluid" src="<%= document.imageUrl %>" style="height: 150px;">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= document.destinationName %></h5>
+                            <h6 class="card-subtitle mb-2 text-muted"><%= document.destinationLocation %></h6>
+                            <p class="card-text">Click Me to See More</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="main.js"></script>
+
+
+</body>
+</html>
