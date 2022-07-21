@@ -26,24 +26,20 @@
     </div>
     <div class="container">
         <div class="row">
-            <h3 id="weather">Weather</h3>
             <div class="col-md-12">
                 <h4 id="title">My WishList</h4>
                 <div id="destinations_container" style="display: flex; flex-wrap: wrap; justify-content: center;">
                 <!-- Dynamically populated by Javascript -->
-                <div class="card w-50" id="<%= document._id %>" style="width: 500px; height: fit-content;">
-                        <img class="card-img-top img-fluid" src="<%= document.imageUrl %>" style="height: 500px;">
+                <div class="card w-50" id="<%= document[0]._id %>" style="width: 500px; height: fit-content;">
+                        <img class="card-img-top img-fluid" src="<%= document[0].imageUrl %>" style="height: 500px;">
                         <div class="card-body">
-                            <h2 class="card-title text-center"><%= document.destinationName %></h2>
-                            <h5 class="card-subtitle mb-2 text-muted text-center"><%= document.destinationLocation %></h5>
+                            <h2 class="card-title text-center"><%= document[0].destinationName %></h2>
+                            <h5 class="card-subtitle mb-2 text-muted text-center"><%= document[0].destinationLocation %></h5>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script type="module" src="main.js"></script>
-
-
 </body>
 </html>

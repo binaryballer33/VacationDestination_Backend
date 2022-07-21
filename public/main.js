@@ -53,14 +53,14 @@ if (navigator.geolocation) {
 getWeather();
 const destinationName = document.querySelector("#name");
 const destinationLocation = document.querySelector("#location");
-const addToListButton = document.querySelector(".btn");
+const addToListButton = document.querySelector(".submit_btn");
 
-// convert html collection into a array, add the eventListener to each removeButton in the array
+// convert html collection into a array, 
+// add the eventListener to each editButton and removeButton in the array
 const editButton = Array.from(document.getElementsByClassName("editButton"));
 const removeButton = Array.from(document.getElementsByClassName("removeButton"));
-const seeMoreText = Array.from(document.getElementsByClassName("seeMoreText"));
 
-
+// HTTP POST REQUEST (CREATE)
 addToListButton.addEventListener("click", async () => {
     // HTTP POST REQUEST 
     const imageUrl = await getDestinationPic();
@@ -80,6 +80,11 @@ addToListButton.addEventListener("click", async () => {
     const json = await res.json();
 });
 
+// HTTP GET REQUEST (READ)
+// This wiil get called automatically when the page loads
+// for the url https://vacation-destination-ejs-shaqm.herokuapp.com/
+
+// HTTP PUT REQUEST (UPDATE)
 editButton.forEach( (button) => {
   button.addEventListener("click", async (event) => {
     const cardId = event.target.parentElement.parentElement.parentElement.id;
@@ -116,6 +121,7 @@ editButton.forEach( (button) => {
   })
 })
 
+// HTTP DELETE REQUEST (DELETE)
 removeButton.forEach( (button) => {
   button.addEventListener("click", (event) => {
     const cardId = event.target.parentElement.parentElement.parentElement.id;
@@ -138,12 +144,6 @@ removeButton.forEach( (button) => {
   })
 });
 
-seeMoreText.forEach( (element) => {
-  element.addEventListener("click", (event) => {
-    const cardId = event.path[2].id;
-    window.open(`https://vacation-destination-ejs-shaqm.herokuapp.com/seeMore/${cardId}`);
-  })
-});
 
 
 

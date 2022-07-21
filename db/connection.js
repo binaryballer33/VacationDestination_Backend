@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
  * if you don't then mongoose will instruct mongodb to create a new db called test
  * and create the collections you definied in the model/schema
  */
+// connect to the "vacationDestination" db in mongodb
 const uri = 'mongodb+srv://vacationDestinationUser:4JBGaDEpajHNwkiN@cluster0.bvzttyy.mongodb.net/vacationDestinations?retryWrites=true&w=majority'
 
 mongoose.connect(uri,
@@ -11,4 +12,5 @@ mongoose.connect(uri,
         console.log("Connected to Vacation Destinations Database!!!");
 })
 
+// export that connection
 module.exports = mongoose
