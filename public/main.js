@@ -138,15 +138,10 @@ removeButton.forEach( (button) => {
   })
 });
 
-//TODO: FIX MEEEEEE!!!!!!
 seeMoreText.forEach( (element) => {
   element.addEventListener("click", (event) => {
-    fetch("https://vacation-destination-ejs-shaqm.herokuapp.com/seeMore")
-    .then((response) => {
-      window.open("/seeMore");
-      return response.json();
-    })
-    .catch((error) => console.error(error))
+    const cardId = event.path[2].id;
+    window.open(`https://vacation-destination-ejs-shaqm.herokuapp.com/seeMore/${cardId}`);
   })
 });
 

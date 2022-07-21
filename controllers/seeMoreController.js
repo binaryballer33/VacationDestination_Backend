@@ -3,22 +3,28 @@ const router = express.Router();
 const vacationDestinations = require("../models/vacationDestinations");
 
 //TODO: FIX ME!!!!
-router.get("/seeMore/", async (req, res) => {
-    const document = vacationDestinations.findById()
-    res.render("seeMore.ejs", {}) 
+// when loading the endpoint it calls the main.js script because it is attached
+// to the seeMore.ejs file (how do i stop that from happening)
+// the way I currently have it setup prevents the weather and other functions
+// from executing from within seeMore.ejs
+
+// exact error below:
+// ================================================
+//  Failed to load module script: Expected a JavaScript module
+//  script but the server responded with a MIME type of "".
+//  Strict MIME type checking is enforced for module scripts 
+//  per HTML spec.
+router.get("/seeMore/:id", async (req, res) => {
+    const id = await req.params.id;
+    console.log(`The id is: ${id}`);
+    if(id.split("").length === 24) {
+        const document = await vacationDestinations.findById(req.params.id)
+        res.render("seeMore.ejs", {document: document}) 
+    } else {
+        res.end()
+    }
 })
 
-router.put("/seeMore", async (req, res) => {
-    const updateDestination = await vacationDestinations.findByIdAndUpdate(req.body.id, req.body, {
-        new: true
-    })
-    res.status(200).json({status: 200, response: updateDestination})
-})
-
-router.delete("/seeMore", async (req, res) => {
-    const deleteDestination =  await vacationDestinations.findByIdAndDelete(req.body.id);
-    res.status(204).json({status: 204, response: deleteDestination});
-})
 
 module.exports = router
 

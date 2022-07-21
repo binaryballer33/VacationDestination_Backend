@@ -21,7 +21,7 @@
     <div class="jumbotron jumbotron-fluid">
         <div class="container text-center">
             <h1 class="display-4">Vacation Destinations WishList</h1>
-            <p class="lead">Found exciting places to visition on your next vacation? Use the form below to add them to
+            <p class="lead text-primary">Found exciting places to visition on your next vacation? Use the form below to add them to
                 your wishlist</p>
         </div>
     </div>
@@ -31,11 +31,11 @@
             <div class="col-md-3">
                 <form id="destination_details_form">
                     <div class="form-group">
-                        <label for="name">Destination name</label>
+                        <label class="text-primary" for="name">Destination name</label>
                         <input required="" minlength="2" type="text" class="form-control" id="name" placeholder="Enter the name of the destination">
                     </div>
                     <div class="form-group">
-                        <label for="location">Location</label>
+                        <label class="text-primary" for="location">Location</label>
                         <input required="" minlength="2" type="text" class="form-control" id="location" placeholder="Where is it located?">
                     </div>
                     <button type="submit" class="btn btn-primary submit_btn">Add to list</button>
@@ -50,15 +50,15 @@
                     <!-- Dynamically populated by Javascript -->
                     <% for (document of destinations) {%>
                         <div class="card" id="<%= document._id %>" style="width: 15rem; height: fit-content;">
-                            <img class="card-img-top img-fluid" src="<%= document.imageUrl %>" style="height: 150px;">
+                            <img class="card-img-top img-fluid" src="<%= document.imageUrl %>" style="height: 200px;">
                             <div class="card-body">
-                                <h5 class="card-title"><%= document.destinationName %></h5>
-                                <h6 class="card-subtitle mb-2 text-muted"><%= document.destinationLocation %></h6>
+                                <h5 class="card-title text-center"><%= document.destinationName %></h5>
+                                <h6 class="card-subtitle mb-2 text-muted text-center"><%= document.destinationLocation %></h6>
                                 <div class="buttons_container" style="width: 100%; display: flex;justify-content: space-between;">
-                                    <button class="btn btn-warning editButton">Edit</button>
-                                    <button class="btn btn-danger removeButton">Remove</button>
+                                    <button class="btn btn-primary editButton">Edit</button>
+                                    <button class="btn btn-secondary removeButton">Remove</button>
                                 </div>
-                                <p class="card-text seeMoreText">Click Me to See More</p>
+                                <h5 class="card-text seeMoreText text-center">Click Me to See More</h5>
                             </div>
                         </div>
                     <% } %> 
