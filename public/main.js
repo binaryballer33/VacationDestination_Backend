@@ -64,7 +64,7 @@ const seeMoreText = Array.from(document.getElementsByClassName("seeMoreText"));
 addToListButton.addEventListener("click", async () => {
     // HTTP POST REQUEST 
     const imageUrl = await getDestinationPic();
-    const res = await fetch("https://vacation-destination-ejs-shaqm.herokuapp.com/destinations", {
+    const res = await fetch("https://vacation-destination-ejs-shaqm.herokuapp.com/", {
         method: 'POST',
         mode: 'cors',
         headers: {
@@ -93,7 +93,7 @@ editButton.forEach( (button) => {
     const img = event.target.parentElement.parentElement.parentElement.children[0];
 
     const imageUrl = await editDestinationPic(newName);
-    fetch("https://vacation-destination-ejs-shaqm.herokuapp.com/destinations", {
+    fetch("https://vacation-destination-ejs-shaqm.herokuapp.com/", {
       method: 'PUT',
       mode: 'cors',
       headers: {
@@ -119,7 +119,7 @@ editButton.forEach( (button) => {
 removeButton.forEach( (button) => {
   button.addEventListener("click", (event) => {
     const cardId = event.target.parentElement.parentElement.parentElement.id;
-    fetch("https://vacation-destination-ejs-shaqm.herokuapp.com/destinations", {
+    fetch("https://vacation-destination-ejs-shaqm.herokuapp.com/", {
       method: 'DELETE',
       mode: 'cors',
       headers: {
@@ -138,6 +138,7 @@ removeButton.forEach( (button) => {
   })
 });
 
+//TODO: FIX MEEEEEE!!!!!!
 seeMoreText.forEach( (element) => {
   element.addEventListener("click", (event) => {
     fetch("https://vacation-destination-ejs-shaqm.herokuapp.com/seeMore")

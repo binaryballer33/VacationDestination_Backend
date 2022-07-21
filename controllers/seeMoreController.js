@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const vacationDestinations = require("../models/vacationDestinations");
 
+//TODO: FIX ME!!!!
 router.get("/seeMore/", async (req, res) => {
     const document = vacationDestinations.findById()
     res.render("seeMore.ejs", {}) 
